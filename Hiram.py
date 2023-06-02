@@ -1,6 +1,8 @@
 # IMPORTS
 import xml.etree.ElementTree as ET
 import re
+import difflib
+
 # CONSTS
 WEB1_XML_PATH = "./web1.xml"
 ALL_WEB_PATHS = ["./web1.xml", "./web2.xml","./web3.xml","./web4.xml"]
@@ -87,13 +89,27 @@ class DrawIOObject:
             print(line)
             i +=1
 
+
+class FuzzyMatcher:
+    def __init__(self, array):
+        self.array = array
+
+    def match(self, query):
+        scores = []
+        for item in self.array:
+            ratio = difflib.SequenceMatcher(None, item, query).ratio()
+            scores.append((item, ratio))
+        scores.sort(key=lambda x: x[1], reverse=True)
+        return scores
+
+
 # MAIN
 def main():
     for path in ALL_WEB_PATHS:
         print("--------------------------------------------")
         web  =  DrawIOObject(path)
         print(path)
-        web.print_mstrix()  
+        web.print_mstrix()
 
 if __name__ == '__main__':
     main()
