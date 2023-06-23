@@ -1,16 +1,19 @@
 # IMPORTS
 import xml.etree.ElementTree as ET
-import re
 import difflib
-
+from sklearn.cluster import KMeans
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
 # CONSTS
-WEB1_XML_PATH = "./web1.xml"
 ALL_WEB_PATHS = ["./web1.xml", "./web2.xml","./web3.xml","./web4.xml"]
-# CLASSES
+ALL_BACKUP_PATHS = ["./backup1.xml","./backup2.xml","./backup3.xml","./backup4.xml"]
+ALL_MOBILE_PATHS = ["./mobile1.xml","./mobile2.xml","./mobile3.xml","./mobile4.xml"]
+ALL_LOG_PATHS = ["./logging1.xml","./logging2.xml"]
+TEST_PATHS = ["./test1.xml","./test2.xml", "./test3.xml"]
+ALL_PATHS = ALL_WEB_PATHS + ALL_BACKUP_PATHS + ALL_LOG_PATHS + ALL_MOBILE_PATHS
 
-# Function to read draw.io diagram and extract connection matrix
-import xml.etree.ElementTree as ET
-import re
+# CLASSES
 
 class DrawIOObject:
     def __init__(self, xml_file):
@@ -78,7 +81,7 @@ class DrawIOObject:
 
         return matrix, flattened_matrix
     
-    def print_mstrix(self):     
+    def print_matrix(self):     
         for name in self.object_types:
             print(name,end=",")
         print()
@@ -95,21 +98,64 @@ class FuzzyMatcher:
         self.array = array
 
     def match(self, query):
-        scores = []
-        for item in self.array:
-            ratio = difflib.SequenceMatcher(None, item, query).ratio()
-            scores.append((item, ratio))
-        scores.sort(key=lambda x: x[1], reverse=True)
+        scores = 0
+        ratio = difflib.SequenceMatcher(None, self.array, query).ratio()
+        scores = ratio
         return scores
+
+
+
+def perform_clustering(vectors):
+    kmeans = KMeans(n_clusters=4)
+    kmeans.fit(vectors)
+    cluster_labels = kmeans.labels_
+    centroids = kmeans.cluster_centers_
+
+    # Reduce dimensionality to 2 dimensions using PCA
+    pca = PCA(n_components=2)
+    reduced_vectors = pca.fit_transform(vectors)
+
+    # Plotting the results
+    plt.scatter(reduced_vectors[:, 0], reduced_vectors[:, 1], c=cluster_labels)
+    plt.scatter(centroids[:, 0], centroids[:, 1], c='red', marker='X', label='Centroids')
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
+    plt.title('Clustering Results')
+
+    # Add labels for each data point
+    for i, vec in enumerate(reduced_vectors):
+        plt.text(vec[0], vec[1], ALL_PATHS[i], fontsize=8, ha='center', va='center')
+
+    plt.legend()
+    plt.show()
 
 
 # MAIN
 def main():
-    for path in ALL_WEB_PATHS:
-        print("--------------------------------------------")
-        web  =  DrawIOObject(path)
-        print(path)
-        web.print_mstrix()
+
+    # PERFORM LEVINSTIEN DISTANCE CHECK AND PRINT NEREAST ANSWER
+    for test in TEST_PATHS:
+        test_object = DrawIOObject(test)
+        best_score = 0
+        best_match = ''
+        for path in ALL_PATHS:
+            web  =  DrawIOObject(path)
+            # web.print_mstrix()
+            matcher = FuzzyMatcher(test_object.flattened_matrix)
+            if best_score < matcher.match(web.flattened_matrix):
+                best_match = path
+                best_score = matcher.match(web.flattened_matrix)
+        print("for test: {0} the best match was: {1}".format(test,best_match))
+
+    
+    # PERFORM K-MEANS TO FIND THE "TYPE" OF THE ARCHITECTURE
+    all_vectors = []
+    for path in ALL_PATHS:
+        web = DrawIOObject(path)
+        all_vectors.append(web.flattened_matrix)
+    perform_clustering(all_vectors)
+    
+
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" modified="2023-06-23T10:37:25.476Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="q5q30bDhlt0137JTSDpr" version="21.3.5" type="device">
+  <diagram name="Page-1" id="rY0KdxwxwuTJuv_12220">
+    <mxGraphModel dx="1079" dy="699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zLOcYw8HPBUh4d7I12uQ-24" target="zLOcYw8HPBUh4d7I12uQ-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zLOcYw8HPBUh4d7I12uQ-24" target="zLOcYw8HPBUh4d7I12uQ-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-24" value="" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;shape=mxgraph.citrix.firewall;fillColor=#66B2FF;gradientColor=#0066CC;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="282.25" width="75" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.591;entryY=0.591;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="zLOcYw8HPBUh4d7I12uQ-28" target="zLOcYw8HPBUh4d7I12uQ-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-28" value="Client" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;shape=mxgraph.citrix.pda;fillColor=#66B2FF;gradientColor=#0066CC;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="298.25" width="30" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zLOcYw8HPBUh4d7I12uQ-30" target="zLOcYw8HPBUh4d7I12uQ-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-30" value="Web Server" style="verticalLabelPosition=top;aspect=fixed;html=1;verticalAlign=bottom;strokeColor=none;shape=mxgraph.citrix.cache_server;fillColor=#66B2FF;gradientColor=#0066CC;fontSize=14;labelPosition=center;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="280" width="71" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-32" value="" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;shape=mxgraph.citrix.xenclient_synchronizer;fillColor=#CCCCCC;gradientColor=#000000;gradientDirection=south;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="830" y="283.25" width="76" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="zLOcYw8HPBUh4d7I12uQ-35" target="zLOcYw8HPBUh4d7I12uQ-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-35" value="Web Server" style="verticalLabelPosition=top;aspect=fixed;html=1;verticalAlign=bottom;strokeColor=none;shape=mxgraph.citrix.cache_server;fillColor=#66B2FF;gradientColor=#0066CC;fontSize=14;labelPosition=center;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="480" width="71" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zLOcYw8HPBUh4d7I12uQ-37" value="" style="verticalLabelPosition=bottom;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;shape=mxgraph.citrix.xenclient_synchronizer;fillColor=#CCCCCC;gradientColor=#000000;gradientDirection=south;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="850" y="483.25" width="76" height="91" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
