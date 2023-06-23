@@ -5,6 +5,9 @@ from sklearn.cluster import KMeans
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
+
+
 # CONSTS
 ALL_WEB_PATHS = ["./web1.xml", "./web2.xml","./web3.xml","./web4.xml"]
 ALL_BACKUP_PATHS = ["./backup1.xml","./backup2.xml","./backup3.xml","./backup4.xml"]
@@ -130,31 +133,83 @@ def perform_clustering(vectors):
     plt.show()
 
 
+
+def check_family_membership(vectors, test_vector, name_of_family):
+ # Create labels for the vectors
+    labels = np.zeros(len(vectors) + 1)
+    labels[-1] = 1  # Assign label 1 to the test vector
+
+    # Combine vectors and test_vector into a single array
+    combined_vectors = np.vstack((vectors, test_vector))
+
+    # Create a logistic regression classifier
+    classifier = LogisticRegression()
+
+    # Train the classifier
+    classifier.fit(combined_vectors, labels)
+
+    # Predict the label of the test_vector
+    prediction = classifier.predict([test_vector])
+
+    # Determine if the test_vector belongs to the same family
+    if prediction == 1:
+        print("The test vector belongs to the {0} family.".format(name_of_family))
+    else:
+        print("The test vector is not part of the {0} family.".format(name_of_family))
+
+
 # MAIN
 def main():
+ 
+    # # PERFORM LEVINSTIEN DISTANCE CHECK AND PRINT NEREAST ANSWER
+    # for test in TEST_PATHS:
+    #     test_object = DrawIOObject(test)
+    #     best_score = 0
+    #     best_match = ''
+    #     for path in ALL_PATHS:
+    #         web  =  DrawIOObject(path)
+    #         # web.print_mstrix()
+    #         matcher = FuzzyMatcher(test_object.flattened_matrix)
+    #         if best_score < matcher.match(web.flattened_matrix):
+    #             best_match = path
+    #             best_score = matcher.match(web.flattened_matrix)
+    #     print("for test: {0} the best match was: {1}".format(test,best_match))
 
-    # PERFORM LEVINSTIEN DISTANCE CHECK AND PRINT NEREAST ANSWER
+    
+    # # PERFORM K-MEANS TO FIND THE "TYPE" OF THE ARCHITECTURE
+    # all_vectors = []
+    # for path in ALL_PATHS:
+    #     web = DrawIOObject(path)
+    #     all_vectors.append(web.flattened_matrix)
+    # perform_clustering(all_vectors)
+    
+    # PERFORM A TEST FOR THE SIMALIRTY BETWEEEN THE FAMILY AND A TEST VECTOR
     for test in TEST_PATHS:
+        print("===================================================================")
+        all_vectors = []
         test_object = DrawIOObject(test)
-        best_score = 0
-        best_match = ''
-        for path in ALL_PATHS:
-            web  =  DrawIOObject(path)
-            # web.print_mstrix()
-            matcher = FuzzyMatcher(test_object.flattened_matrix)
-            if best_score < matcher.match(web.flattened_matrix):
-                best_match = path
-                best_score = matcher.match(web.flattened_matrix)
-        print("for test: {0} the best match was: {1}".format(test,best_match))
+        print("for the test object {0}".format(test))
+        for path in ALL_BACKUP_PATHS:
+            web = DrawIOObject(path)
+            all_vectors.append(web.flattened_matrix)
+        check_family_membership(all_vectors,test_object.flattened_matrix, "backup")
+        all_vectors = []
+        for path in ALL_LOG_PATHS:
+            web = DrawIOObject(path)
+            all_vectors.append(web.flattened_matrix)
+        check_family_membership(all_vectors,test_object.flattened_matrix, "logging")
+        all_vectors = []
+        for path in ALL_WEB_PATHS:
+            web = DrawIOObject(path)
+            all_vectors.append(web.flattened_matrix)
+        check_family_membership(all_vectors,test_object.flattened_matrix, "web")
+        all_vectors = []
+        for path in ALL_MOBILE_PATHS:
+            web = DrawIOObject(path)
+            all_vectors.append(web.flattened_matrix)
+        check_family_membership(all_vectors,test_object.flattened_matrix, "mobile")
 
-    
-    # PERFORM K-MEANS TO FIND THE "TYPE" OF THE ARCHITECTURE
-    all_vectors = []
-    for path in ALL_PATHS:
-        web = DrawIOObject(path)
-        all_vectors.append(web.flattened_matrix)
-    perform_clustering(all_vectors)
-    
+
 
 
 if __name__ == '__main__':
