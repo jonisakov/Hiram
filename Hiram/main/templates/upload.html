@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Upload an XML File</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'receive_architecture_file' %}">
+        {% csrf_token %}
+        <input type="file" name="xml_file" accept=".xml" required>
+        <button type="submit">Upload and Analyze</button>
+    </form>
+</div>
+{% endblock content %}

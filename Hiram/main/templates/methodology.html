@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Methodology</h2>
+    <p>Hiram follows the following methodology:</p>
+    <ol>
+        <li>The data is received as an XML file saved from DRAW.IO.</li>
+        <li>The XML file is decompressed using the Deflate compression algorithm.</li>
+        <li>The decompressed XML is converted into a 2-dimensional matrix representing the connections between different components.</li>
+        <li>The data is normalized into a format suitable for fuzzy learning using machine learning algorithms.</li>
+        <li>The 2-dimensional matrix is transformed into a single binary word.</li>
+        <li>The Levenshtein Distance algorithm is used to find the best-known word that matches the new word.</li>
+    </ol>
+
+    <h2>Possible Improvements</h2>
+    <p>To further categorize the new architectures, a grouping algorithm can be applied. Each component can be divided into a general category, and the number of components in each category can be counted. By placing the resulting vectors on an N-dimensional graph, the nearest distance to a pre-categorized architecture can be chosen for fuzzy matching.</p>
+
+    <h2>Scope</h2>
+    <p>The scope of this work includes seven different items described in the XML's shape attribute:</p>
+    <ul>
+        <li>Thin client item</li>
+        <li>Firewall</li>
+        <li>Xenapp server (represents a file server)</li>
+        <li>Cache server (represents a web server)</li>
+        <li>Cellphone</li>
+        <li>Xenclient synchronizer (represents a back-end server)</li>
+        <li>Chassis (represents an SQL server)</li>
+        <li>Direction line (indicates the source-to-destination packet flow)</li>
+    </ul>
+    <p>Mixing and matching about 12 different architectures from different domains, such as web applications, backup applications, mobile applications, and logging servers, will provide a learning base.</p>
+
+    <h2>Goals</h2>
+    <p>The project aims to receive any architecture from Draw.io containing the specified objects and offer a more secure alternative while preserving the original design's intention. For example, if a web application architecture is detected, the offered architecture should be able to perform the same operations but with a higher level of security. The reliability of the tool will be tested with three architectures from each domain.</p>
+
+    <a href="https://github.com/jonisakov/Hiram" class="cta-button">Our Github</a>
+</div>
+{% endblock content %}

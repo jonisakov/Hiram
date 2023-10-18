@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" modified="2023-06-23T10:32:12.651Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="mvnCq26Z3d_Huzuxx7br" version="21.3.5" type="device">
+  <diagram name="Page-1" id="22h0C3zP0Mx8Ert5cZZn">
+    <mxGraphModel dx="1079" dy="699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BwsXLLV4dhuooWhaV-zW-1" value="" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.firewall;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="75" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="BwsXLLV4dhuooWhaV-zW-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BwsXLLV4dhuooWhaV-zW-3" target="BwsXLLV4dhuooWhaV-zW-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BwsXLLV4dhuooWhaV-zW-3" value="" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.xenapp_server;" vertex="1" parent="1">
+          <mxGeometry x="110" y="394.25" width="76" height="89" as="geometry" />
+        </mxCell>
+        <mxCell id="BwsXLLV4dhuooWhaV-zW-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="BwsXLLV4dhuooWhaV-zW-5" target="BwsXLLV4dhuooWhaV-zW-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BwsXLLV4dhuooWhaV-zW-5" value="" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.xenapp_server;" vertex="1" parent="1">
+          <mxGeometry x="490" y="384.25" width="76" height="89" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

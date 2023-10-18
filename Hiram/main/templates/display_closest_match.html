@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+<h1>The best secure match</h1>
+<div class="container">
+    <p>
+        <img src="{% static png_image %}" alt="Best Match">
+    </p>
+
+    <a href="{% url 'upload' %}"class="cta-button">upload another xml</a>
+</div>
+{% endblock content %}
